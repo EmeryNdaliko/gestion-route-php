@@ -1,0 +1,11 @@
+# Active le moteur de réécriture d'URL
+RewriteEngine On
+
+# Vérifie si le fichier ou le répertoire demandé n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Réécrit toutes les requêtes vers index.php
+# [QSA] conserve la chaîne de requête (paramètres GET)
+# [L] arrête le traitement des règles suivantes
+RewriteRule ^(.*)$ index.php [QSA,L]
